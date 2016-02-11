@@ -1,0 +1,17 @@
+{
+  "name": "adapt-home",
+  "version": "2.0.0",
+  "framework": "2.0.6",
+  "homepage": "https://github.com/deltanet/adapt-home",
+  "issues": "https://github.com/deltanet/adapt-home/issues",
+  "displayName" : "Home",
+  "extension" : "home",
+  "description": "An extension to add a home button to the navigation bar.",
+  "main": "/js/adapt-home.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPL-3.0",
+  "targetAttribute": "_home"
+}

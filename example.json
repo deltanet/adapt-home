@@ -1,0 +1,8 @@
+// To go in the course.json file
+
+    "_home": {
+        "_isEnabled": true,
+        "_icon": "icon-home",
+        "_hide": "co-01",
+        "_link": "co-02"
+    },

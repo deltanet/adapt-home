@@ -12,7 +12,50 @@
           "type":"object"
         },
         "course": {
-          "type":"object"
+          "type":"object",
+          "properties":{
+            "_home": {
+              "type":"object",
+              "required":false,
+              "legend": "Block Reveal",
+              "properties":{
+                "_isEnabled": {
+                  "type":"boolean",
+                  "required":true,
+                  "title": "Enabled",
+                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "validators": [],
+                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                },
+                "_icon": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Icon",
+                  "default": "icon-home",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "_hide": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Hide Link",
+                  "default": "icon-home",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Enter the ID of the page that should not show the home link."
+                },
+                "_link": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Home Link",
+                  "default": "icon-home",
+                  "inputType": "Text",
+                  "validators": [],
+                  "help": "Enter the ID of the page that is used for the home link."
+                }
+              }
+            }
+          }
         },
         "contentobject": {
           "type":"object"

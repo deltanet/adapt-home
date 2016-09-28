@@ -17,7 +17,7 @@
             "_home": {
               "type":"object",
               "required":false,
-              "legend": "Block Reveal",
+              "legend": "Home Button",
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
@@ -25,7 +25,7 @@
                   "title": "Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns Block Reveal on and off. Acceptable values are true and false."
+                  "help": "Turns home button on and off. Acceptable values are true and false."
                 },
                 "_icon": {
                   "type": "string",

@@ -28,12 +28,29 @@ define(function(require) {
             $('.home-button').addClass(Adapt.course.get('_home')._icon);
 
             // Check for pages to hide on
-            if(Adapt.course.get('_home')._hide === Adapt.location._currentId) {
+            this.hideButton();
+
+            return this;
+
+        },
+
+        hideButton: function() {
+
+          var hideIDs = Adapt.course.get('_home')._hide;
+
+          var hasHideIdsConfiguration = (hideIDs && hideIDs.length > 0);
+
+          if (hasHideIdsConfiguration) {
+            for (var i = 0, l =  hideIDs.length; i < l; i++) {
+              var item = hideIDs[i];
+              var id = item._id;
+
+              if(item._id === Adapt.location._currentId) {
                 $('.home-button').css('display','none');
+              }
+
             }
-
-            return this; 
-
+          }
         },
 
         initLink: function(event) {

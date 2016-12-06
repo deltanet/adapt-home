@@ -3,6 +3,13 @@
     "_home": {
         "_isEnabled": true,
         "_icon": "icon-home",
-        "_hide": "co-01",
-        "_link": "co-02"
+        "_link": "co-02",
+        "_hide": [
+            {
+                "_id": "co-01"
+            },
+            {
+                "_id": "co-02"
+            }
+        ]
     },

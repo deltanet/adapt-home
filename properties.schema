@@ -22,7 +22,8 @@
                 "_isEnabled": {
                   "type":"boolean",
                   "required":true,
-                  "title": "Enabled",
+                  "default":false,
+                  "title": "Is Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
                   "help": "Turns home button on and off. Acceptable values are true and false."
@@ -35,15 +36,6 @@
                   "inputType": "Text",
                   "validators": []
                 },
-                "_hide": {
-                  "type": "string",
-                  "required": true,
-                  "title": "Hide Link",
-                  "default": "icon-home",
-                  "inputType": "Text",
-                  "validators": [],
-                  "help": "Enter the ID of the page that should not show the home link."
-                },
                 "_link": {
                   "type": "string",
                   "required": true,
@@ -52,6 +44,25 @@
                   "inputType": "Text",
                   "validators": [],
                   "help": "Enter the ID of the page that is used for the home link."
+                },
+                "_hide": {
+                  "type":"array",
+                  "required":true,
+                  "title": "Pages to hide button on",
+                  "items": {
+                    "type":"object",
+                    "required":true,
+                    "properties":{
+                      "link": {
+                        "type": "string",
+                        "required": true,
+                        "title": "ID",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "Enter the ID of the page that should not show the home link."
+                      }
+                    }
+                  }
                 }
               }
             }

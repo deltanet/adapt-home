@@ -26,7 +26,7 @@
                   "title": "Is Enabled",
                   "inputType": { "type": "Boolean", "options": [false, true]},
                   "validators": [],
-                  "help": "Turns home button on and off. Acceptable values are true and false."
+                  "help": "Turns the home button on and off. Acceptable values are true and false."
                 },
                 "_icon": {
                   "type": "string",
@@ -43,7 +43,7 @@
                   "default": "icon-home",
                   "inputType": "Text",
                   "validators": [],
-                  "help": "Enter the ID of the page that is used for the home link."
+                  "help": "Enter the ID of the page that the home button navigates to."
                 },
                 "_hide": {
                   "type":"array",
@@ -53,13 +53,13 @@
                     "type":"object",
                     "required":true,
                     "properties":{
-                      "link": {
+                      "_id": {
                         "type": "string",
                         "required": true,
                         "title": "ID",
                         "inputType": "Text",
                         "validators": [],
-                        "help": "Enter the ID of the page that should not show the home link."
+                        "help": "Enter the ID of the page that should not show the home button."
                       }
                     }
                   }

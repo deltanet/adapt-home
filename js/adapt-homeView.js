@@ -41,7 +41,7 @@ define(function(require) {
           var hasHideIdsConfiguration = (hideIDs && hideIDs.length > 0);
 
           if (hasHideIdsConfiguration) {
-            for (var i = 0, l =  hideIDs.length; i < l; i++) {
+            for (var i = 0, l = hideIDs.length; i < l; i++) {
               var item = hideIDs[i];
               var id = item._id;
 

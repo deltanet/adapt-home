@@ -17,45 +17,39 @@ define(function(require) {
         },
 
         render: function() {
-
             var data = this.model.toJSON();
             var template = Handlebars.templates['home'];
             this.$el.html(template({
                 home:data
             }));
-
             // Add icon to button
             this.$('.home-button').addClass(Adapt.course.get('_home')._icon);
+            // Setup home link
+            this.setupHome();
+        },
 
-            // Check for pages to hide on
-            this.checkIDs();
+        setupHome: function() {
+          this.link = Adapt.course.get('_home')._link;
+          this.availableChildren = new Backbone.Collection(Adapt.course.getChildren().where({_isAvailable: true}));
+          this.homeLink = this.availableChildren.models[this.link-1].get('_id');
+          // Check for pages to hide on
+          this.checkIDs();
         },
 
         checkIDs: function() {
-
           // Show button
           this.$('.home-button').css('display','block');
-
-          var hideIDs = Adapt.course.get('_home')._hide;
-
-          var hasHideIdsConfiguration = (hideIDs && hideIDs.length > 0);
-
-          if (hasHideIdsConfiguration) {
-            for (var i = 0, l = hideIDs.length; i < l; i++) {
-              var item = hideIDs[i];
-              var id = item._id;
-
-              if(id == Adapt.location._currentId) {
-                this.$('.home-button').css('display','none');
-              }
-
+          // Hide button on all child pages in the course
+          for (var i = 0, l = this.availableChildren.length; i < l; i++) {
+            if(Adapt.location._currentId == this.availableChildren.models[i].get('_id')) {
+              this.$('.home-button').css('display','none');
             }
           }
         },
 
         initLink: function(event) {
             if (event) event.preventDefault();
-            Adapt.navigateToElement('.' + Adapt.course.get('_home')._link);
+            Adapt.navigateToElement('.' + this.homeLink);
         },
 
         onNavigationEnd: function(view) {

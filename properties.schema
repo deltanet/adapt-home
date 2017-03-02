@@ -37,32 +37,13 @@
                   "validators": []
                 },
                 "_link": {
-                  "type": "string",
+                  "type": "number",
                   "required": true,
-                  "title": "Home Link",
-                  "default": "icon-home",
-                  "inputType": "Text",
-                  "validators": [],
-                  "help": "Enter the ID of the page that the home button navigates to."
-                },
-                "_hide": {
-                  "type":"array",
-                  "required":true,
-                  "title": "Pages to hide button on",
-                  "items": {
-                    "type":"object",
-                    "required":true,
-                    "properties":{
-                      "_id": {
-                        "type": "string",
-                        "required": true,
-                        "title": "ID",
-                        "inputType": "Text",
-                        "validators": [],
-                        "help": "Enter the ID of the page that should not show the home button."
-                      }
-                    }
-                  }
+                  "inputType": "Number",
+                  "title": "Home Page",
+                  "default": 2,
+                  "validators": ["number"],
+                  "help": "Enter which page number the home button navigates to."
                 }
               }
             }

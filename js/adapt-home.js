@@ -1,8 +1,8 @@
-define(function(require) {
-
-    var Adapt = require('coreJS/adapt');
-    var Backbone = require('backbone');
-    var HomeView = require('extensions/adapt-home/js/adapt-homeView');
+define([
+    'backbone',
+    'core/js/adapt',
+    './adapt-homeView'
+], function(Backbone, Adapt, HomeView) {
 
     function setupHome(toolboxModel) {
 

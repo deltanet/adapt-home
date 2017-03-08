@@ -1,15 +1,7 @@
 // To go in the course.json file
 
-    "_home": {
-        "_isEnabled": true,
-        "_icon": "icon-home",
-        "_link": "co-02",
-        "_hide": [
-            {
-                "_id": "co-01"
-            },
-            {
-                "_id": "co-02"
-            }
-        ]
-    },
+"_home": {
+  "_isEnabled": true,
+  "_icon": "icon-home",
+  "_link": 2
+},

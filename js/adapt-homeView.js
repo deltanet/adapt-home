@@ -31,7 +31,15 @@ define(function(require) {
         setupHome: function() {
           this.link = Adapt.course.get('_home')._link;
           this.availableChildren = new Backbone.Collection(Adapt.course.getChildren().where({_isAvailable: true}));
-          this.homeLink = this.availableChildren.models[this.link-1].get('_id');
+
+          // Backward compatible
+          // If length of link is greater than 5 it will be treated as a string ID
+          if(this.link.length > 5) {
+            this.homeLink = this.link;
+          } else {
+            this.homeLink = this.availableChildren.models[this.link-1].get('_id');
+          }
+
           // Check for pages to hide on
           this.checkIDs();
         },
@@ -45,6 +53,25 @@ define(function(require) {
               this.$('.home-button').css('display','none');
             }
           }
+
+          // Backward compatible
+          // Check for Array of ID's to hide button on
+          var hideIDs = Adapt.course.get('_home')._hide;
+
+          var hasHideIdsConfiguration = (hideIDs && hideIDs.length > 0);
+
+          if (hasHideIdsConfiguration) {
+            for (var i = 0, l = hideIDs.length; i < l; i++) {
+              var item = hideIDs[i];
+              var id = item._id;
+
+              if(id == Adapt.location._currentId) {
+                this.$('.home-button').css('display','none');
+              }
+
+            }
+          }
+
         },
 
         initLink: function(event) {

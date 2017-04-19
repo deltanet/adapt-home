@@ -44,4 +44,4 @@ No known limitations.
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-home/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes     
-**Authoring tool support:** no
+**Authoring tool support:** Yes

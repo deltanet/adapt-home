@@ -32,14 +32,13 @@ The Home attribute group contains values for **_isEnabled**, **_icon**, **_link*
 
 ### Accessibility
 Several elements of **Home** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **achievements**. These labels are not visible elements. They are utilized by assistive technology such as screen readers. Should the label texts need to be customised, they can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-achievements/blob/master/properties.schema).   
-<div float align=right><a href="#top">Back to Top</a></div> 
 
 ## Limitations
- 
-No known limitations. 
+
+No known limitations.
 
 ----------------------------
-**Version number:**  2.1.1   
+**Version number:**  2.1.2   
 **Framework versions supported:**  2.0.6    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-home/graphs/contributors)     
 **Accessibility support:** Yes  

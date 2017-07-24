@@ -16,17 +16,17 @@
           "properties":{
             "_home": {
               "type":"object",
-              "required":false,
+              "required": false,
               "legend": "Home Button",
               "properties":{
                 "_isEnabled": {
                   "type":"boolean",
-                  "required":true,
-                  "default":false,
+                  "required": true,
+                  "default": false,
                   "title": "Is Enabled",
-                  "inputType": { "type": "Boolean", "options": [false, true]},
+                  "inputType": "Checkbox",
                   "validators": [],
-                  "help": "Turns the home button on and off. Acceptable values are true and false."
+                  "help": "Controls whether the Home extension is enabled or disabled."
                 },
                 "_icon": {
                   "type": "string",
@@ -46,12 +46,12 @@
                 },
                 "_hide": {
                   "type":"array",
-                  "required":false,
+                  "required": false,
                   "title": "Additional pages to hide button on",
                   "help": "The home button will automitically hide on all pages at course level, for additional pages enter page ID's below.",
                   "items": {
                     "type":"object",
-                    "required":false,
+                    "required": false,
                     "properties":{
                       "_id": {
                         "type": "string",

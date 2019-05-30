@@ -1,8 +1,8 @@
 # adapt-home
 
-**Home** is an *extension* for the the [Adapt framework](https://github.com/adaptlearning/adapt_framework).   
+**Home** is an *extension* for the [Adapt framework](https://github.com/adaptlearning/adapt_framework).   
 
-This extension displays a button in the top navigation bar that can link to a specific page in a course.
+This extension displays a button in the top navigation bar that links to the page's parent page (menu).  
 
 ## Installation
 
@@ -18,28 +18,17 @@ The attributes listed below are properly formatted as JSON in [*example.json*](h
 
 ### Attributes
 
-The Home attribute group contains values for **_isEnabled**, **_icon**, **_link**, and **_hide**.
+The Home attribute group contains values for **_isEnabled**, **_icon**, and **ariaLabel**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Home** extension. Can be set to disable **Home** when not required.
 
->**_icon** (string):  Defines the css class for the icon on the button.  
+>**_icon** (string):  Defines the css class for the button icon.  
 
->**_link** (string):  Defines the location for the destination of the button. This can be the ID of an element or a page number.  
-
->**_hide** (array):  This `_hide` array group stores the properties for multiple pages to hide the button on. It contains values for **_id**.  
-
->>**_id** (string):  Defines the id for the page that the button should be hidden on.  
-
-### Accessibility
-Several elements of **Home** have been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **achievements**. These labels are not visible elements. They are utilized by assistive technology such as screen readers. Should the label texts need to be customised, they can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-achievements/blob/master/properties.schema).   
-
-## Limitations
-
-No known limitations.
+>**ariaLabel** (string): This text becomes the button aria label and is read by assistive technologies.  
 
 ----------------------------
-**Version number:**  2.1.3   
-**Framework versions supported:**  2.0.6    
+**Version number:**  3.0.0   
+**Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-home/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes     

@@ -1,26 +1,26 @@
 {
-  "type":"object",
+  "type": "object",
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
-  "required":false,
-  "properties":{
+  "required": false,
+  "properties": {
     "pluginLocations": {
-      "type":"object",
-      "required":true,
-      "properties":{
+      "type": "object",
+      "required": true,
+      "properties": {
         "config": {
-          "type":"object"
+          "type": "object"
         },
         "course": {
-          "type":"object",
+          "type": "object",
           "properties":{
             "_home": {
-              "type":"object",
+              "type": "object",
               "required": false,
               "legend": "Home Button",
-              "properties":{
+              "properties": {
                 "_isEnabled": {
-                  "type":"boolean",
+                  "type": "boolean",
                   "required": true,
                   "default": false,
                   "title": "Is Enabled",
@@ -36,33 +36,14 @@
                   "inputType": "Text",
                   "validators": []
                 },
-                "_link": {
+                "ariaLabel": {
                   "type": "string",
-                  "required": true,
-                  "inputType": "Text",
-                  "title": "Home Page",
-                  "validators": [],
-                  "help": "Enter which page number or ID of the page that the home button navigates to."
-                },
-                "_hide": {
-                  "type":"array",
                   "required": false,
-                  "title": "Additional pages to hide button on",
-                  "help": "The home button will automitically hide on all pages at course level, for additional pages enter page ID's below.",
-                  "items": {
-                    "type":"object",
-                    "required": false,
-                    "properties":{
-                      "_id": {
-                        "type": "string",
-                        "required": false,
-                        "title": "Page ID",
-                        "inputType": "Text",
-                        "validators": [],
-                        "help": "Enter the ID of the page that should not show the home button."
-                      }
-                    }
-                  }
+                  "title": "Aria Label",
+                  "default": "Back to menu.",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
                 }
               }
             }

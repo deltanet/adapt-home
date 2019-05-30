@@ -22,7 +22,8 @@ define([
 
             this.$el
                 .prependTo('.navigation-inner')
-                .addClass(this.model.get('_icon'));
+                .addClass(this.model.get('_icon'))
+                .attr('role', 'link');
 
             if (this.model.get('ariaLabel')) {
                 this.$el.attr('aria-label', this.model.get('ariaLabel'));

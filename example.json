@@ -2,14 +2,5 @@
 
 "_home": {
   "_isEnabled": true,
-  "_icon": "icon-home",
-  "_link": "2",
-  "_hide": [
-    {
-      "_id": "co-01"
-    },
-    {
-      "_id": "co-02"
-    }
-  ]
+  "_icon": "icon-home"
 },

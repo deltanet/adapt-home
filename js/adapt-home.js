@@ -32,12 +32,12 @@ define([
 
         setupListeners: function() {
             this.listenTo(Adapt, 'navigationView:postRender', this.hideBackButton);
-            this.listenTo(Adapt, 'pageView:ready', this.renderHomeView);
+            this.listenTo(Adapt, 'menuView:ready pageView:ready', this.renderHomeView);
         },
 
         removeListeners: function() {
             this.stopListening(Adapt, 'navigationView:postRender', this.hideBackButton);
-            this.stopListening(Adapt, 'pageView:ready', this.renderHomeView);
+            this.stopListening(Adapt, 'menuView:ready pageView:ready', this.renderHomeView);
             this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
         },
 
@@ -46,8 +46,11 @@ define([
         },
 
         renderHomeView: function(view) {
-            // Don't render if the page is in the root of the course
-            if (view.model.get('_parentId') === "course") return;
+            // Don't show on the root level of Adapt
+            if (view.model.get('_type') === "course") return;
+
+            // Don't show when the page or menu is at the root level of Adapt and the Start controller is enabled
+            if (view.model.get('_parentId') === "course" && Adapt.course.get('_start')._isEnabled) return;
 
             new HomeView({
                 model: this.model

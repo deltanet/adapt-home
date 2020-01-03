@@ -27,7 +27,7 @@ The Home attribute group contains values for **_isEnabled**, **_icon**, and **ar
 >**ariaLabel** (string): This text becomes the button aria label and is read by assistive technologies.  
 
 ----------------------------
-**Version number:**  3.0.0   
+**Version number:**  3.0.1   
 **Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-home/graphs/contributors)     
 **Accessibility support:** Yes  

@@ -2,5 +2,8 @@
 
 "_home": {
   "_isEnabled": true,
-  "_icon": "icon-home"
+  "_icon": "icon-home",
+  "ariaLabel": "",
+  "_subIcon": "icon-arrow-left",
+  "subAriaLabel": ""
 },

@@ -18,7 +18,7 @@ The attributes listed below are properly formatted as JSON in [*example.json*](h
 
 ### Attributes
 
-The Home attribute group contains values for **_isEnabled**, **_icon**, and **ariaLabel**.
+The Home attribute group contains values for **_isEnabled**, **_icon**, **ariaLabel**, **_subIcon**, and **subAriaLabel**.
 
 >**_isEnabled** (boolean):  Turns on and off the **Home** extension. Can be set to disable **Home** when not required.
 
@@ -26,8 +26,12 @@ The Home attribute group contains values for **_isEnabled**, **_icon**, and **ar
 
 >**ariaLabel** (string): This text becomes the button aria label and is read by assistive technologies.  
 
+>**_subIcon** (string):  Defines the css class for the button icon within sub menu pages.  
+
+>**subAriaLabel** (string): This text becomes the button aria label for sub menu pages and is read by assistive technologies.  
+
 ----------------------------
-**Version number:**  3.0.1   
+**Version number:**  3.1.0   
 **Framework versions supported:**  2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-home/graphs/contributors)     
 **Accessibility support:** Yes  

@@ -46,11 +46,21 @@ define([
         },
 
         renderHomeView: function(view) {
-            // Don't show on the root level of Adapt
-            if (view.model.get('_type') === "course") return;
+            // Don't render if the page is in the root of the course
+            if (view.model.get('_parentId') === "course") return;
 
-            // Don't show when the page or menu is at the root level of Adapt and the Start controller is enabled
-            if (view.model.get('_parentId') === "course" && Adapt.course.get('_start')._isEnabled) return;
+            // Set icon based on whether it is in a submenu
+            if (view.model.getParent().getParent().get('_type') === "menu") {
+              this.model.set('_buttonIcon', this.model.get('_subIcon'));
+              if (this.model.get('subAriaLabel')) {
+                  this.model.set('buttonLabel', this.model.get('subAriaLabel'));
+              }
+            } else {
+              this.model.set('_buttonIcon', this.model.get('_icon'));
+              if (this.model.get('ariaLabel')) {
+                  this.model.set('buttonLabel', this.model.get('ariaLabel'));
+              }
+            }
 
             new HomeView({
                 model: this.model

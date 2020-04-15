@@ -40,7 +40,24 @@
                   "type": "string",
                   "required": false,
                   "title": "Aria Label",
-                  "default": "Back to menu.",
+                  "default": "Back to main menu.",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true
+                },
+                "_subIcon": {
+                  "type": "string",
+                  "required": true,
+                  "title": "Sub-pages Icon",
+                  "default": "icon-arrow-left",
+                  "inputType": "Text",
+                  "validators": []
+                },
+                "subAriaLabel": {
+                  "type": "string",
+                  "required": false,
+                  "title": "Sub-pages Aria Label",
+                  "default": "Back to previous menu.",
                   "inputType": "Text",
                   "validators": [],
                   "translatable": true

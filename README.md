@@ -31,8 +31,8 @@ The Home attribute group contains values for **_isEnabled**, **_icon**, **ariaLa
 >**subAriaLabel** (string): This text becomes the button aria label for sub menu pages and is read by assistive technologies.  
 
 ----------------------------
-**Version number:**  3.1.0   
-**Framework versions supported:**  2+    
+**Version number:**  4.0.0   
+**Framework versions supported:**  5+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-home/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes     

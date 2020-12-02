@@ -21,9 +21,10 @@ define([
       var data = this.model.toJSON();
 
       this.$el
-        .insertAfter('.nav__skip-btn')
         .addClass(this.model.get('_buttonIcon'))
         .attr('role', 'link');
+
+      $('.nav__inner').prepend(this.$el);
 
       if (this.model.get('buttonLabel')) {
         this.$el.attr('aria-label', this.model.get('buttonLabel'));

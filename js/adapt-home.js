@@ -1,79 +1,77 @@
-define([
-  'core/js/adapt',
-  './homeView'
-], function (Adapt, HomeView) {
+import Adapt from 'core/js/adapt';
+import HomeView from './homeView';
 
-  var Home = _.extend({
+class Home extends Backbone.Controller {
 
-    initialize: function () {
-      this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
-    },
+  initialize() {
+    this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+  }
 
-    onAppDataReady: function () {
-      this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+  onAppDataReady() {
+    this.listenTo(Adapt.config, 'change:_activeLanguage', this.onLangChange);
 
-      if (!Adapt.course.get('_home')) return;
+    if (!Adapt.course.get('_home')) return;
 
-      if (!Adapt.course.get('_home')._isEnabled) return;
+    if (!Adapt.course.get('_home')._isEnabled) return;
 
-      this.setupHome();
-      this.setupListeners();
-    },
+    this.setupHome();
+    this.setupListeners();
+  }
 
-    onLangChange: function () {
-      this.removeListeners();
-      this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
-    },
+  onLangChange() {
+    this.removeListeners();
+    this.listenToOnce(Adapt, 'app:dataReady', this.onAppDataReady);
+  }
 
-    setupHome: function () {
-      this.config = Adapt.course.get('_home');
-      this.model = new Backbone.Model(this.config);
-    },
+  setupHome() {
+    this.config = Adapt.course.get('_home');
+    this.model = new Backbone.Model(this.config);
+  }
 
-    setupListeners: function () {
-      this.listenTo(Adapt, 'navigationView:postRender', this.hideBackButton);
-      this.listenTo(Adapt, 'menuView:ready pageView:ready', this.renderHomeView);
-    },
+  setupListeners() {
+    this.listenTo(Adapt, {
+      'contentObjectView:ready': this.renderHomeView,
+      'navigationView:postRender': this.hideBackButton
+    });
+  }
 
-    removeListeners: function () {
-      this.stopListening(Adapt, 'navigationView:postRender', this.hideBackButton);
-      this.stopListening(Adapt, 'menuView:ready pageView:ready', this.renderHomeView);
-      this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
-    },
+  removeListeners() {
+    this.stopListening(Adapt, {
+      'contentObjectView:ready': this.renderHomeView,
+      'navigationView:postRender': this.hideBackButton
+    });
 
-    hideBackButton: function () {
-      $('.nav__back-btn').hide();
-    },
+    this.stopListening(Adapt.config, 'change:_activeLanguage', this.onLangChange);
+  }
 
-    renderHomeView: function (view) {
-      // Don't render if the page is in the root of the course
-      if (view.model.get('_parentId') === "course") return;
+  hideBackButton() {
+    $('.nav__back-btn').hide();
+  }
 
-      if (view.model.get('_type') === "course") return;
+  renderHomeView(view) {
+    // Don't render if the page is in the root of the course
+    if (view.model.get('_parentId') === "course") return;
 
-      // Set icon based on whether it is in a submenu
-      if (view.model.getParent().getParent().get('_type') === "menu") {
-        this.model.set('_buttonIcon', this.model.get('_subIcon'));
+    if (view.model.get('_type') === "course") return;
 
-        if (this.model.get('subAriaLabel')) {
-          this.model.set('buttonLabel', this.model.get('subAriaLabel'));
-        }
-      } else {
-        this.model.set('_buttonIcon', this.model.get('_icon'));
-        if (this.model.get('ariaLabel')) {
-          this.model.set('buttonLabel', this.model.get('ariaLabel'));
-        }
+    // Set icon based on whether it is in a submenu
+    if (view.model.getParent().getParent().get('_type') === "menu") {
+      this.model.set('_buttonIcon', this.model.get('_subIcon'));
+
+      if (this.model.get('subAriaLabel')) {
+        this.model.set('buttonLabel', this.model.get('subAriaLabel'));
       }
-
-      new HomeView({
-        model: this.model
-      });
+    } else {
+      this.model.set('_buttonIcon', this.model.get('_icon'));
+      if (this.model.get('ariaLabel')) {
+        this.model.set('buttonLabel', this.model.get('ariaLabel'));
+      }
     }
 
-  }, Backbone.Events);
+    new HomeView({
+      model: this.model
+    });
+  }
+}
 
-  Home.initialize();
-
-  return Home;
-
-});
+export default Adapt.home = new Home();
